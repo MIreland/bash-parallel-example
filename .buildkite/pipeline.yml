@@ -1,10 +1,22 @@
 steps:
-  - label: ":console:"
-    command: "echo 'Hello, World!'"
+  - command:
+      - "yarn install"
+      - "yarn run test"
     plugins:
-      - docker#v3.2.0:
+      - docker#v3.11.0:
           image: "mcr.microsoft.com/playwright:v1.20.0-focal"
-          workdir: /app
-    parallelism: 1
-    agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
+          always-pull: true
+          command: ["echo", "hello"]
+          environment:
+            - "MY_SECRET_KEY"
+            - "MY_SPECIAL_BUT_PUBLIC_VALUE=kittens"
+#steps:
+#  - label: ":console:"
+#    command: "echo 'Hello, World!'"
+#    plugins:
+#      - docker#v3.2.0:
+#          image: "mcr.microsoft.com/playwright:v1.20.0-focal"
+#          workdir: /app
+#    parallelism: 1
+#    agents:
+#      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
