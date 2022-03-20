@@ -1,6 +1,10 @@
 steps:
   - label: ":console:"
-    command: "script.sh"
-    parallelism: 5
+    command: "echo 'Hello, World!'"
+    plugins:
+      - docker#v3.2.0:
+          image: "mcr.microsoft.com/playwright:v1.20.0-focal"
+          workdir: /app
+    parallelism: 1
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
