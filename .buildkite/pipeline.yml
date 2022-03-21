@@ -4,7 +4,8 @@ steps:
       - "yarn run test"
     plugins:
       - docker#v3.11.0:
-          image: "mcr.microsoft.com/playwright:v1.20.0-focal"
+          image: "public.ecr.aws/s6w7s0y4/example-ecr-box-march-22:latest"
+#          image: "mcr.microsoft.com/playwright:v1.20.0-focal"
           always-pull: true
           command: ["echo", "hello"]
           environment:
