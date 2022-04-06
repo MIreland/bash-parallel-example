@@ -11,6 +11,7 @@ steps:
           environment:
             - "MY_SECRET_KEY"
             - "MY_SPECIAL_BUT_PUBLIC_VALUE=kittens"
+      parallelism: 3
 #steps:
 #  - label: ":console:"
 #    command: "echo 'Hello, World!'"
